@@ -3,16 +3,16 @@
 namespace App\Http\Resources;
 
 use App\Util\CodigoApp;
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class CategoriaResource extends JsonResource
+class ProcesoCollection extends ResourceCollection
 {
     private $codigo;
 
     /**
-     * CategoriaResource constructor.
-     * @param mixed $resource Datos a enviar al frontend
-     * @param int Codigo que va a procesar la parte de FrontEnd para verificar
+     * ProcesoCollection constructor.
+     * @param mixed $resource Colleccion de datos a enviar al frontend
+     * @param int $codigo Codigo que va a procesar la parte de FrontEnd para verificar
      * si la peticion ocurrio correctamente o existio algun error.
      */
     public function __construct($resource, $codigo = CodigoApp::OK)
@@ -21,18 +21,15 @@ class CategoriaResource extends JsonResource
         $this->codigo = $codigo;
     }
     /**
-     * Transform the resource into an array.
+     * Transform the resource collection into an array.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function toArray($request)
     {
         return [
-            'data' =>[
-                'id' => $this->id,
-                'categoria' => $this->categoria
-            ],
+            'data' => $this->collection,
             'codigo' => $this->codigo
         ];
     }

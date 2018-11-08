@@ -5,12 +5,12 @@ namespace App\Http\Resources;
 use App\Util\CodigoApp;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoriaResource extends JsonResource
+class ProcesoResource extends JsonResource
 {
     private $codigo;
 
     /**
-     * CategoriaResource constructor.
+     * ProcesoResource constructor.
      * @param mixed $resource Datos a enviar al frontend
      * @param int Codigo que va a procesar la parte de FrontEnd para verificar
      * si la peticion ocurrio correctamente o existio algun error.
@@ -31,7 +31,7 @@ class CategoriaResource extends JsonResource
         return [
             'data' =>[
                 'id' => $this->id,
-                'categoria' => $this->categoria
+                'proceso' => $this->proceso
             ],
             'codigo' => $this->codigo
         ];

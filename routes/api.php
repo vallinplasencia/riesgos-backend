@@ -19,7 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/categoria', 'Api\CategoriaController', [
-'parameters' => [
+    'parameters' => [
         'categoria' => 'categoria'
+    ]
+]);
+
+Route::apiResource('/proceso', 'Api\ProcesoController', [
+    'parameters' => [
+        'proceso' => 'proceso'
     ]
 ]);
