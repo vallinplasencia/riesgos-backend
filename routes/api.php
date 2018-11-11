@@ -29,3 +29,9 @@ Route::apiResource('/proceso', 'Api\ProcesoController', [
         'proceso' => 'proceso'
     ]
 ]);
+
+Route::apiResource('/responsable', 'Api\ResponsableController', [
+    'parameters' => [
+        'responsable' => 'responsable'
+    ]
+]);

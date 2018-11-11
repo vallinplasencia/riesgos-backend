@@ -1,3 +1,84 @@
+# RiesgosBackend
+ RiesgosBackend es el proyecto que consta de una API para gestionar los riesgos de los equipos tecnologicos de una empresa.
+
+
+## Tecnologia
+* [Laravel 5.7](https://laravel.com/)
+
+## Instalacion
+
+### Clonado el repo
+``` bash
+# clonando el repositorio
+$ git clone https://github.com/vallinplasencia/riesgos-backend.git riesgos-backend
+
+# Navedando al directorio del proyecto
+$ cd riesgos-backend
+
+# Instalando las dependencias del proyecto
+$ composer install
+
+# Generando App Key
+$ php artisan key:generate
+
+# Crear solamente la BD
+## Entras a la consola de mysql con el usuario y clave correspndiente
+$ mysql -u nombUsuario -p
+## Creas la bd
+$> CREATE DATABASE xxxx CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+# Migrando la BD y poblandola con datos de prueba(Creando tablas y sus datos de prueba)
+$ php artisan migrate --seed
+
+# Tambien se puede utilizar el comando....
+$ php artisan migrate:fresh --seed
+```
+
+## Forma para correr el proyecto.
+
+Monatarlo en un servidor WEB y visitar [riesgos-backend.mii](http://riesgos-backend.mii)
+
+### Requisitos del servidor.
+El servidor debe cumplir con los requisitos q obliga Laravel a que tenga el servidor.
+[Requisitos del proyecto](https://laravel.com/docs/5.7)
+
+Lo ideal para el desarrollo seria montar el proyecto en un virtual host aqui esta la configuracion para este VirtualHost.
+
+``` bash
+<VirtualHost *:80>
+	ServerName riesgos-backend.mii
+	ServerAlias www.riesgos-backend.mii
+	DocumentRoot "\Directorio\del\proyecto\public"
+	DirectoryIndex index.php
+
+	#ErrorLog "logs/riesgos-backend.mii-error.log"
+    #CustomLog "logs/riesgos-backend.mii-access.log" common
+
+	#php_flag log_errors on
+    #php_flag display_errors off
+    #php_value error_reporting 2147483647
+    #php_value error_log "logs\php_errors.log"
+
+	<Directory "\Directorio\del\proyecto\public">
+		AllowOverride All
+		Require all granted
+	</Directory>
+</VirtualHost>
+```
+Se deberia poner como nombre del servidor riesgos-backend.mii para que funcione todo.
+Esto es porque este proyecto es una API rest q se gestiona con [riesgos-frontend](https://github.com/vallinplasencia/riesgos-frontend.git).
+Con el objetivo de verificarlo(este proyecto) le integre la parte del Frontend  y esta carga los datos como si el proyecto estuviera montado en el dominio http://riesgos-backend.mii.
+
+Recordar que para correr el proyecto LOCALMENTE en la url [riesgos-backend.mii](http://riesgos-backend.mii) hay q editar el archivo hosts del sistema operativo.
+
+Todo Listo. Ahora navegar a [riesgos-backend.mii](http://riesgos-backend.mii)
+
+## LICENSE
+
+Esta aplicacion está bajo licencia [MIT license](https://opensource.org/licenses/MIT).
+
+## ***************** MAS DATOS INTERESANTES *****************
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
